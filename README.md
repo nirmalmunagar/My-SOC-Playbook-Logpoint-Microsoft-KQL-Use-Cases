@@ -7,3 +7,8 @@ This repo contains LP query
 
 ## 2. This query will give top 10 torrent activity user in last X days
 "user"=* application=bittorrent | process geoip(destination_address) as country | chart count() as attempt by user, source_address, destination_address, country order by count() desc limit 10  
+
+
+
+
+# KQL Query - MS Defender
