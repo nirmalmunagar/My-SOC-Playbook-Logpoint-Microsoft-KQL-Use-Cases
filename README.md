@@ -15,7 +15,9 @@ This repo contains LP query
 
 ## 1. Searching for last X hours of Signins logs based on Account.
 
+```kusto
 AADSignInEventsBeta
 | where AccountUpn == "delta.nom@xyz.com"  // give UPN name here
 | sort by Timestamp asc
 | project Timestamp, AccountUpn, DeviceName, IPAddress, LogonType, Country, ConditionalAccessPolicies, State, RiskState, RiskLevelDuringSignIn
+```
