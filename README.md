@@ -22,7 +22,7 @@ AADSignInEventsBeta
 | project Timestamp, AccountUpn, DeviceName, IPAddress, LogonType, Country, ConditionalAccessPolicies, State, RiskState, RiskLevelDuringSignIn
 ```
 
-##2. 
+##2. Detect Brute Force or Password Spray
 
 ```kusto
 AADSignInEventsBeta
@@ -30,4 +30,12 @@ AADSignInEventsBeta
 | where ErrorCode != 0  \\ Filter failed login attempt
 | summarize FailedAttempts = count() by bin(Timestamp, 1h), IPAddress, City, State // bin(Timestamp,1h) is Time based bucket grouped by IPAddress. count failure per number of IP/hour
 | sort by Timestamp asc
+```
+##3. Sign-ins Over Time (Timeline View)
+This query help to detect Unusual spike in activity, Access outside business hours and automated sign-in Attempts.
+```kusto
+AADSignInEventsBeta
+| where AccountUpn == "delta.nom@xyz.com"
+| summarize SignInCount = count() by bin(Timestamp, 1h) //Groups events into 1-hour time bucket and counts the number of sign-ins per hour
+| sort by Timestamp
 ```
