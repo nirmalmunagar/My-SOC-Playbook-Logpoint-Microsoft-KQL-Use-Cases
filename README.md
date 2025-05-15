@@ -21,3 +21,13 @@ AADSignInEventsBeta
 | sort by Timestamp asc
 | project Timestamp, AccountUpn, DeviceName, IPAddress, LogonType, Country, ConditionalAccessPolicies, State, RiskState, RiskLevelDuringSignIn
 ```
+
+##2. 
+
+```kusto
+AADSignInEventsBeta
+| where AccountUpn == "delta.nom@xyz.com"
+| where ErrorCode != 0  \\ Filter failed login attempt
+| summarize FailedAttempts = count() by bin(Timestamp, 1h), IPAddress, City, State // bin(Timestamp,1h) is Time based bucket grouped by IPAddress. count failure per number of IP/hour
+| sort by Timestamp asc
+```
