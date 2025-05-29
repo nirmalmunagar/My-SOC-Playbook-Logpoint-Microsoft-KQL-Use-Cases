@@ -1,6 +1,10 @@
-# Logpoint-Query
-This repo contains LP query 
+# 🛡️ Daily SOC Queries: Logpoint & Microsoft KQL
 
+A curated collection of real-world queries from my day-to-day activities as a Security Engineer. This repository includes practical examples and use cases using: 
+- 🔍 **Logpoint SIEM**
+- 📊 **Microsoft Defender XDR (Kusto Query Language - KQL)**
+
+# Logpoint-Query
 
 ## 1. Search command which ran on linux terminal as a root user 
 ```plaintext
@@ -53,3 +57,9 @@ EmailEvents
 | summarize EmailCount = count() by RecipientEmailAddress, Subject
 | order by EmailCount desc
 ```
+
+
+
+## 👨‍💻 About Me
+
+I'm a Security Engineer working in a SOC environment, focused on detection engineering, threat intel correlation, and SOAR automation.
