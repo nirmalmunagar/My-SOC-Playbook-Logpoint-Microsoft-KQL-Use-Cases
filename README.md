@@ -20,7 +20,7 @@ AADSignInEventsBeta
 
 
 ## 2. Detect Brute Force or Password Spray
-This query help to detect Password spary, Brute force, Suspicious Ip making repeated failed attempts
+This query helps detect password spray, brute-force attacks, and suspicious IPs making repeated failed login attempts.
 ```kusto
 AADSignInEventsBeta
 | where AccountUpn == "delta.nom@xyz.com"
@@ -30,7 +30,7 @@ AADSignInEventsBeta
 ```
 
 ## 3. Sign-ins Over Time (Timeline View)
-This query help to detect Unusual spike in activity, Access outside business hours and automated sign-in Attempts.
+This query helps detect unusual spikes in activity, access outside business hours, and automated sign-in attempts.
 ```kusto
 AADSignInEventsBeta
 | where AccountUpn == "delta.nom@xyz.com"
@@ -39,7 +39,7 @@ AADSignInEventsBeta
 ```
 
 ## 4. Find out all users who received mail from attacker address.
-This query will list all user in timeframe who received mail from malicious sender address.
+This query lists all users within a timeframe who received emails from malicious sender addresses.
 ```kusto
 EmailEvents
 | where SenderFromAddress == "xyz@mail.com"
