@@ -47,7 +47,7 @@ EmailEvents
 | order by EmailCount desc
 ```
 
-
+---
 
 # Logpoint-Query
 
