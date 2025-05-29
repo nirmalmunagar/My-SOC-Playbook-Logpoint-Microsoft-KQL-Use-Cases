@@ -1,8 +1,8 @@
-# 🛡️ Daily SOC Queries: Logpoint & Microsoft KQL
+# Daily SOC Queries: Logpoint & Microsoft KQL
 
 A curated collection of real-world queries from my day-to-day activities as a Security Engineer. This repository includes practical examples and use cases using: 
-- 🔍 **Logpoint SIEM**
-- 📊 **Microsoft Defender XDR (Kusto Query Language - KQL)**
+- **Logpoint SIEM**
+- **Microsoft Defender XDR (Kusto Query Language - KQL)**
 
 
 
