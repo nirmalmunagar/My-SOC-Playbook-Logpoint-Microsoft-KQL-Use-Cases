@@ -44,3 +44,12 @@ AADSignInEventsBeta
 | summarize SignInCount = count() by bin(Timestamp, 1h) //Groups events into 1-hour time bucket and counts the number of sign-ins per hour
 | sort by Timestamp
 ```
+
+## 4. Find out all users who received mail from attacker address.
+This query will list all user in timeframe who received mail from malicious sender address.
+```kusto
+EmailEvents
+| where SenderFromAddress == "xyz@mail.com"
+| summarize EmailCount = count() by RecipientEmailAddress, Subject
+| order by EmailCount desc
+```
