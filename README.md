@@ -4,17 +4,6 @@ A curated collection of real-world queries from my day-to-day activities as a Se
 - 🔍 **Logpoint SIEM**
 - 📊 **Microsoft Defender XDR (Kusto Query Language - KQL)**
 
-# Logpoint-Query
-
-## 1. Search command which ran on linux terminal as a root user 
-```plaintext
-"agentx_unix_full_log"="*nmap*" "device_name"="<host_name>" "/var/log/syslog" | chart count() by agentx_unix_full_log -> this will find nmap command on host
-```
-
-## 2. This query will give top 10 torrent activity user in last X days
-```plaintext
-"user"=* application=bittorrent | process geoip(destination_address) as country | chart count() as attempt by user, source_address, destination_address, country order by count() desc limit 10  
-```
 
 
 
@@ -56,6 +45,20 @@ EmailEvents
 | where SenderFromAddress == "xyz@mail.com"
 | summarize EmailCount = count() by RecipientEmailAddress, Subject
 | order by EmailCount desc
+```
+
+
+
+# Logpoint-Query
+
+## 1. Search command which ran on linux terminal as a root user 
+```plaintext
+"agentx_unix_full_log"="*nmap*" "device_name"="<host_name>" "/var/log/syslog" | chart count() by agentx_unix_full_log -> this will find nmap command on host
+```
+
+## 2. This query will give top 10 torrent activity user in last X days
+```plaintext
+"user"=* application=bittorrent | process geoip(destination_address) as country | chart count() as attempt by user, source_address, destination_address, country order by count() desc limit 10  
 ```
 
 
